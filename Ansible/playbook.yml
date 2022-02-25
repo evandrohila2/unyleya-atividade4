@@ -1,0 +1,11 @@
+---
+- hosts: webserver
+  tasks:
+  - name: "Install IIS"
+    #gather_facts: true
+    ansible.windows.win_feature:
+        name: "web-server"
+        state: present
+        restart: yes
+        include_sub_features: yes
+        include_management_tools: yesr   
